@@ -3,6 +3,13 @@ Generate SVG filters for color vision deficiency simulation and correction. Thes
 
 Developed for use in [FastStream](https://github.com/Andrews54757/FastStream), a browser extension for better video playback.
 
+Available CVD types:
+1. Protanomaly
+2. Dueteranomaly
+3. Tritanomaly
+
+Uses the [LMS daltonization algorithm](http://www.daltonize.org/2010/05/lms-daltonization-algorithm.html).
+
 ## Usage
 
 Demo available in `./demo/` [Live on Github Pages](https://andrews54757.github.io/SVG-Daltonizer/demo/). Use `SVGDaltonizer.mjs` to generate new svg filters.
