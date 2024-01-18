@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <filter color-interpolation-filters="sRGB" x="0%" y="0%" width="100%" height="100%" id="simulate">
+            <feColorMatrix type="matrix"
+                values="0.31399022 0.63951294 0.04649755 0 0 0.15537241 0.75789446 0.08670142 0 0 0.01775239 0.10944209 0.87255922 0 0 0 0 0 1 0"
+                in="SourceGraphic" result="lms"></feColorMatrix>
+            <feColorMatrix type="matrix"
+                values="1 0 0 0 0 0.9513312567661351 0 0.04866874323386493 0 0 0 0 1 0 0 0 0 0 1 0" in="lms"
+                result="lms-sim"></feColorMatrix>
+            <feColorMatrix type="matrix"
+                values="5.47221206 -4.6419601 0.16963708 0 0 -1.1252419 2.29317094 -0.1678952 0 0 0.02980165 -0.19318073 1.16364789 0 0 0 0 0 1 0"
+                in="lms-sim"></feColorMatrix>
+        </filter>
+    </defs>
+</svg>

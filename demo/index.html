@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>SVG-Daltonizer Demo</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+    </head>
+    <body>
+        <h1>SVG-Daltonizer Demo</h1>
+        <script src="app.mjs" type="module"></script>
+
+        <div id="controls">
+
+            <label for="cvdType">Type of color vision deficiency:</label>
+            <select id="cvdType">
+                <option value="-1">Normal</option>
+                <option value="0">Protanomaly</option>
+                <option value="1">Deuteranomaly</option>
+                <option value="2">Tritanomaly</option>
+            </select>
+
+            <br>
+
+            <input type="checkbox" id="simulate">Simulate Only</input>
+
+            <br>
+            <label for="strength">CVD Strength:</label>
+            <input type="range" id="strength" min="0" max="1" step="0.05" value="1">
+
+            <br>
+
+            <label for="image">Choose Image:</label>
+            <input type="file" id="filechooser" accept="image/*">
+
+        </div>
+
+
+        <h2>Original</h2>
+        <img id="image-original" src="testimage2.png">
+        <h2>Filtered</h2>
+        <img id="image-output" src="testimage2.png">
+            
+        <h2>SVG Filter</h2>
+        <code id="svgFilter">
+
+        </code>
+    </body>
+</html>
