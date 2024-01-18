@@ -16,10 +16,10 @@ let type = DaltonizerTypes.PROTANOMALY;
 let strengthValue = 1.0;
 if (simulate) {
     svgobj = SVGDaltonizer.makeCVDSimulatorFilter(type, strengthValue);
-    svgobj.filter.id = 'simulate';
+    svgobj.filter.id = 'simulate-' + type + '-' + strengthValue;
 } else {
     svgobj = SVGDaltonizer.makeLMSDaltonizerFilter(type, strengthValue);
-    svgobj.filter.id = 'daltonize';
+    svgobj.filter.id = 'daltonize-' + type + '-' + strengthValue;
 }
 
 targetElement.style.filter = `url(#${svgobj.filter.id})`;

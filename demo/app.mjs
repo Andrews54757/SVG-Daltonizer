@@ -23,7 +23,7 @@ let lastSVG;
 function update() {
     outputImage.style.filter = '';
     if (lastSVG) {
-        lastSVG.remove();
+        document.head.removeChild(lastSVG);
     }
 
     const type = parseInt(cvdType.value);
@@ -35,10 +35,10 @@ function update() {
     let svgobj;
     if (simulate.checked) {
         svgobj = SVGDaltonizer.makeCVDSimulatorFilter(type, strengthValue);
-        svgobj.filter.id = 'simulate';
+        svgobj.filter.id = 'simulate-' + type + '-' + strengthValue;
     } else {
         svgobj = SVGDaltonizer.makeLMSDaltonizerFilter(type, strengthValue);
-        svgobj.filter.id = 'daltonize';
+        svgobj.filter.id = 'daltonize-' + type + '-' + strengthValue;
     }
 
     outputImage.style.filter = `url(#${svgobj.filter.id})`;
@@ -47,8 +47,6 @@ function update() {
     lastSVG = svgobj.svg;
 
     svgFilterOutput.textContent = svgobj.svg.outerHTML;
-
-    
 }
 
 cvdType.addEventListener('change', update);
