@@ -23,7 +23,12 @@ let lastSVG;
 function update() {
     outputImage.style.filter = '';
     if (lastSVG) {
-        document.head.removeChild(lastSVG);
+        try {
+            document.head.removeChild(lastSVG);
+        } catch (e) {
+            console.error(e);
+        }
+        lastSVG = null;
     }
 
     const type = parseInt(cvdType.value);
