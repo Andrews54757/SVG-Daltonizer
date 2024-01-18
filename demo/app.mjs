@@ -24,7 +24,7 @@ function update() {
     outputImage.style.filter = '';
     if (lastSVG) {
         try {
-            document.head.removeChild(lastSVG);
+            document.body.removeChild(lastSVG);
         } catch (e) {
             console.error(e);
         }
@@ -46,9 +46,12 @@ function update() {
         svgobj.filter.id = 'daltonize-' + type + '-' + strengthValue;
     }
 
+    svgobj.svg.style.position = 'fixed';
+    svgobj.svg.style.height = '0px';
+    
     outputImage.style.filter = `url(#${svgobj.filter.id})`;
 
-    document.head.appendChild(svgobj.svg);
+    document.body.appendChild(svgobj.svg);
     lastSVG = svgobj.svg;
 
     svgFilterOutput.textContent = svgobj.svg.outerHTML;
