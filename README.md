@@ -5,7 +5,7 @@ Developed for use in [FastStream](https://github.com/Andrews54757/FastStream), a
 
 ## Usage
 
-Demo available in `./demo/`. Use `SVGDaltonizer.mjs` to generate new svg filters.
+Demo available in `./demo/` [Live on Github Pages](https://andrews54757.github.io/SVG-Daltonizer/demo/). Use `SVGDaltonizer.mjs` to generate new svg filters.
 
 ```js
 import { DaltonizerTypes, SVGDaltonizer } from "./SVGDaltonizer.mjs";
