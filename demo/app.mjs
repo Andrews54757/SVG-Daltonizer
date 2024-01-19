@@ -8,6 +8,7 @@ const strength = document.getElementById('strength');
 const inputImage = document.getElementById('image-original');
 const outputImage = document.getElementById('image-output');
 const svgFilterOutput = document.getElementById('svgFilter');
+const machado = document.getElementById('machado');
 
 filechooser.addEventListener('change', () => {
     const file = filechooser.files[0];
@@ -33,16 +34,17 @@ function update() {
 
     const type = parseInt(cvdType.value);
     const strengthValue = parseFloat(strength.value);
+    const useMachado = machado.checked;
     if (type === -1 || strengthValue === 0) {
         return;
     }
 
     let svgobj;
     if (simulate.checked) {
-        svgobj = SVGDaltonizer.makeCVDSimulatorFilter(type, strengthValue);
+        svgobj = SVGDaltonizer.makeCVDSimulatorFilter(type, strengthValue, useMachado);
         svgobj.filter.id = 'simulate-' + type + '-' + strengthValue;
     } else {
-        svgobj = SVGDaltonizer.makeLMSDaltonizerFilter(type, strengthValue);
+        svgobj = SVGDaltonizer.makeLMSDaltonizerFilter(type, strengthValue, useMachado);
         svgobj.filter.id = 'daltonize-' + type + '-' + strengthValue;
     }
 
@@ -59,6 +61,7 @@ function update() {
 
 cvdType.addEventListener('change', update);
 simulate.addEventListener('change', update);
+machado.addEventListener('change', update);
 strength.addEventListener('input', update);
 
 update();

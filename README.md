@@ -19,13 +19,14 @@ import { DaltonizerTypes, SVGDaltonizer } from "./SVGDaltonizer.mjs";
 
 let svgobj;
 let simulate = false;
+let useMachado = true;
 let type = DaltonizerTypes.PROTANOMALY;
 let strengthValue = 1.0;
 if (simulate) {
-    svgobj = SVGDaltonizer.makeCVDSimulatorFilter(type, strengthValue);
+    svgobj = SVGDaltonizer.makeCVDSimulatorFilter(type, strengthValue, useMachado);
     svgobj.filter.id = 'simulate-' + type + '-' + strengthValue;
 } else {
-    svgobj = SVGDaltonizer.makeLMSDaltonizerFilter(type, strengthValue);
+    svgobj = SVGDaltonizer.makeLMSDaltonizerFilter(type, strengthValue, useMachado);
     svgobj.filter.id = 'daltonize-' + type + '-' + strengthValue;
 }
 
@@ -40,6 +41,8 @@ Pregenerated SVG filters are also available in `./pregenerated/`
 http://www.daltonize.org/2010/05/lms-daltonization-algorithm.html
 
 https://ixora.io/projects/colorblindness/color-blindness-simulation-research/
+
+https://www.inf.ufrgs.br/~oliveira/pubs_files/CVD_Simulation/CVD_Simulation.html
 
 ## License
 Available for use under the MIT license. See LICENSE.md for more information.
